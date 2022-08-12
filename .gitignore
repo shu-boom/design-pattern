@@ -4,6 +4,7 @@ coverage
 coverage.json
 typechain
 bin
+.husky
 
 
 #Hardhat files
