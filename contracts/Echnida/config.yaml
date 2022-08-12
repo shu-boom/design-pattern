@@ -1,0 +1,3 @@
+corpusDir: "corpus-magic"
+seqLen: 2
+estimateGas: true
