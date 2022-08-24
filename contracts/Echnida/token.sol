@@ -1,5 +1,5 @@
 //SPDX-License-Identifier: Unlicense
-pragma solidity ^0.8.4;
+pragma solidity ^0.8.0;
 // Note: The issues from exercise 1 and 2 are fixed
 
 contract Ownership{
