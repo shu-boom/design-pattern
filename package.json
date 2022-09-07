@@ -21,5 +21,9 @@
     "hardhat": "^2.9.9",
     "husky": "^8.0.1",
     "solidity-coverage": "0.7.12"
+  },
+  "dependencies": {
+    "@chainlink/contracts": "^0.4.1",
+    "dotenv": "^16.0.1"
   }
 }
