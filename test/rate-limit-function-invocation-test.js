@@ -1,6 +1,8 @@
 const { expect } = require('chai');
-const { ethers } = require('hardhat')
+const { ethers, network } = require('hardhat');
+const { LOCAL_NETWORKS } = require('../hardhat.config.js');
 
+LOCAL_NETWORKS.includes(network.name) ? 
 describe('RateLimitFunctionInvocation', function () {
     beforeEach(async () => {
         signers = await ethers.getSigners();
@@ -27,4 +29,8 @@ describe('RateLimitFunctionInvocation', function () {
         await ethers.provider.send('evm_mine');
         await rateLimitFunctionInvocation.withdraw(ethers.utils.parseEther('10'), {value: ethers.utils.parseEther('10')});
     });
+})
+:
+describe('RateLimitFunctionInvocation Remote', function () {
+    //TODO
 });

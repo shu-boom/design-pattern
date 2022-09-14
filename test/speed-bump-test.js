@@ -1,6 +1,8 @@
-const { expect } = require('chai')
-const { ethers } = require('hardhat')
+const { expect } = require('chai');
+const { ethers, network} = require('hardhat');
+const { LOCAL_NETWORKS } = require('../hardhat.config.js');
 
+LOCAL_NETWORKS.includes(network.name) ? 
 describe('SpeedBump', function () {
     beforeEach(async () => {
         signers = await ethers.getSigners();
@@ -81,4 +83,7 @@ describe('SpeedBump', function () {
         balance = await speedBump.connect(user1).getUserBalance();
         expect(balance).to.equal(amount);
     });
+}):
+describe('SpeedBump Remote', function () {
+    //TODO
 });

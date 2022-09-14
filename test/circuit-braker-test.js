@@ -1,6 +1,8 @@
-const { expect } = require('chai')
-const { ethers } = require('hardhat')
+const { expect } = require('chai');
+const { ethers, network } = require('hardhat');
+const { LOCAL_NETWORKS } = require('../hardhat.config.js');
 
+LOCAL_NETWORKS.includes(network.name) ? 
 describe('CircuitBraker', function () {
     beforeEach(async () => {
         signers = await ethers.getSigners();
@@ -70,4 +72,6 @@ describe('CircuitBraker', function () {
       balanceAfterWithdraw = await circuitBraker.getBalance();
       expect(balanceAfterWithdraw).to.equal(ethers.utils.parseEther('0'));
     });
+}) : describe('CircuitBraker Remote', function () {
+    // TODO
 });

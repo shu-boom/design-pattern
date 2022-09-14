@@ -1,8 +1,6 @@
 const { expect, assert } = require('chai');
-const { ethers, network } = require('hardhat')
-const {networks} = require("../hardhat.config.js");
-console.log(networks);
-console.log(network);
+const { ethers, network } = require('hardhat');
+const {networks, LOCAL_NETWORKS} = require("../hardhat.config.js");
 const LinkTokenABI = require("@chainlink/contracts/abi/v0.4/LinkToken.json"); 
 
 /**
@@ -12,7 +10,7 @@ const LinkTokenABI = require("@chainlink/contracts/abi/v0.4/LinkToken.json");
  * Otherwise, we can use our .env to get us correct data if we are on a network.
  */
 
-["hardhat", "localhost"].includes(network.name) ? 
+LOCAL_NETWORKS.includes(network.name) ? 
  describe('Oracle Tests Local', function () {
   beforeEach(async () => {
       // Deploy Mocks and wait use those to setup oracle
@@ -35,7 +33,6 @@ const LinkTokenABI = require("@chainlink/contracts/abi/v0.4/LinkToken.json");
       oracle = await Oracle.deploy(vrfCoordinatorMock.address, KEY_HASH, linkTokenMock.address, {gasLimit: 8000000});
       await oracle.deployed();
 
-      console.log("Oracle deployed to:", oracle.address);
       subscriptionId = await oracle.subscriptionId();
       await vrfCoordinatorMock.fundSubscription(subscriptionId, ethers.utils.parseEther("5"));
   });

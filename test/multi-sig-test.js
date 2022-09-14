@@ -1,5 +1,8 @@
-const { expect } = require('chai')
-const { ethers } = require('hardhat')
+const { expect } = require('chai');
+const { ethers, network } = require('hardhat');
+const { LOCAL_NETWORKS } = require('../hardhat.config.js');
+
+LOCAL_NETWORKS.includes(network.name) ? 
 
 describe('MultiSig', function () {
     beforeEach(async () => {
@@ -234,3 +237,7 @@ describe('MultiSig', function () {
     });
 
 })
+: 
+describe('MultiSig Remote', function () {
+    // TODO
+});

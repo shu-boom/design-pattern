@@ -1,6 +1,8 @@
 const { expect } = require("chai");
-const { ethers } = require("hardhat");
+const { ethers, network } = require("hardhat");
+const { LOCAL_NETWORKS } = require('../hardhat.config.js');
 
+LOCAL_NETWORKS.includes(network.name) ? 
 describe("Secure Transfer", function () {
   it("Attacker should be able to steal ethers from a vulnerable contract", async function () {
     const VulnerableEtherSender = await hre.ethers.getContractFactory(
@@ -120,4 +122,7 @@ describe("Secure Transfer", function () {
     expect(await crossFunctionAttacker2.getBalance()).to.equal(hre.ethers.utils.parseEther('0')); 
 });
 
+}): 
+describe("Secure Transfer Remote", function () {
+  //TODO
 });

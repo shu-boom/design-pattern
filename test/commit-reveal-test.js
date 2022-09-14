@@ -1,6 +1,8 @@
 const { expect } = require('chai');
-const { ethers } = require('hardhat')
+const { ethers, network } = require('hardhat');
+const { LOCAL_NETWORKS } = require('../hardhat.config.js');
 
+LOCAL_NETWORKS.includes(network.name) ? 
 describe('CommitReveal', function () {
     beforeEach(async () => {
         signers = await ethers.getSigners();
@@ -66,4 +68,7 @@ describe('CommitReveal', function () {
         expect(secret).to.equal(_secret)
         expect(hash).to.equal(_hash)
     });
+}) : 
+describe('CommitReveal Remote', function () {
+    //TODO
 });

@@ -1,6 +1,8 @@
 const { expect } = require('chai');
-const { ethers } = require('hardhat')
+const { ethers, network } = require('hardhat');
+const { LOCAL_NETWORKS } = require('../hardhat.config.js');
 
+LOCAL_NETWORKS.includes(network.name) ? 
 describe('RateLimitAmountBeingWithdrawn', function () {
     beforeEach(async () => {
         signers = await ethers.getSigners();
@@ -25,4 +27,8 @@ describe('RateLimitAmountBeingWithdrawn', function () {
         rateLimitAmountBeingWithdrawn.withdraw(ethers.utils.parseEther('10'), {value: ethers.utils.parseEther('10')});
     });
 
+})
+:
+describe('RateLimitAmountBeingWithdrawn Remote', function () {
+    //TODO
 });

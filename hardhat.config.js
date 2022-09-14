@@ -7,7 +7,8 @@ require("dotenv").config();
 
 const privateKey = process.env.PRIVATE_KEY;
 const URL = process.env.URL;
-
+const LOCAL_NETWORKS = ["hardhat", "localhost"];
+ 
 task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
   const accounts = await hre.ethers.getSigners();
 
@@ -61,5 +62,6 @@ module.exports = {
   },
   mocha: {
     timeout: 40000000
-  }
+  },
+  LOCAL_NETWORKS: ["hardhat", "localhost"]
 };
