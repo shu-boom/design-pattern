@@ -1,15 +1,19 @@
-# Basic Sample Hardhat Project
+# Smart Contract Design Patterns 
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts.
+This repository presents some of the common Solidity design patterns. 
 
-Try running some of the following tasks:
+To run scripts. Try the following command: 
 
 ```shell
-npx hardhat accounts
-npx hardhat compile
-npx hardhat clean
-npx hardhat test
-npx hardhat node
-node scripts/sample-script.js
-npx hardhat help
+    npx hardhat run scripts/NAME_OF_THE_SCRIPT
 ```
+
+Only basic unit testing is implemented!
+
+To run tests. Try the following command: 
+
+```shell
+    npx hardhat test --network NETWORK_NAME
+```
+
+These contracts are not audited. Please use at your own risk! 

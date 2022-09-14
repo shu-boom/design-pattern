@@ -5,6 +5,7 @@ coverage.json
 typechain
 bin
 .husky
+.DS_Store
 
 
 #Hardhat files
